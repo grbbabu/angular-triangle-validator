@@ -1,0 +1,49 @@
+<div class="jumbotron">
+  <h1>Triangle Validator</h1>
+</div>
+
+<div class="row marketing">
+  <form>
+    <div class="form-group">
+      <label for="side1">Length of first side</label>
+      <input type="text" class="form-control" id="side1" data-ng-model="side1Length" placeholder="Side 1">
+    </div>
+    <div class="form-group">
+      <label for="side2">Length of second side</label>
+      <input type="text" class="form-control" id="side2" data-ng-model="side2Length" placeholder="Side 2">
+    </div>
+    <div class="form-group">
+      <label for="side3">Length of third side</label>
+      <input type="text" class="form-control" id="side3" data-ng-model="side3Length" placeholder="Side 3">
+    </div>
+
+    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#validationModal"
+            ng-click="validateTriangle(side1Length, side2Length, side3Length)">Know More</button>
+
+    <!-- Modal -->
+    <div class="modal fade" id="validationModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+            <h4 class="modal-title" id="myModalLabel">Validation Results</h4>
+          </div>
+          <div class="modal-body">
+            <p data-ng-show="validationResult.isValid">
+              The triangle is a valid triangle.
+            </p>
+            <p data-ng-hide="validationResult.isValid">
+              The triangle is an invalid triangle.
+            </p>
+            <p data-ng-bind="validationResult.message"></p>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-primary" data-dismiss="modal">Close</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </form>
+</div>
